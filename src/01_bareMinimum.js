@@ -235,7 +235,17 @@ _.last = function (arr, n) {
 
 // _.each는 명시적으로 어떤 값을 리턴하지 않습니다.
 _.each = function (collection, iteratee) {
-  // TODO: 여기에 코드를 작성합니다.
+  if (Array.isArray(collection)) {
+    for (let i = 0; i < collection.length; i++) {
+      iteratee(collection[i] ,i ,collection)
+    }
+  } else {
+    for (let key of Object.keys(collection)) {
+      iteratee(collection[key], key, collection)
+    }
+    
+  }
+  
 };
 
 // _.indexOf는 target으로 전달되는 값이 arr의 요소인 경우, 배열에서의 위치(index)를 리턴합니다.
