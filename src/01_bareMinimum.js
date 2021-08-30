@@ -113,6 +113,29 @@ _.slice = function (arr, start, end) {
 // n이 배열의 길이를 벗어날 경우, 전체 배열을 shallow copy한 새로운 배열을 리턴합니다.
 _.take = function (arr, n) {
   // TODO: 여기에 코드를 작성합니다.
+  
+  if (n === undefined || n < 0) {
+    return []
+  }
+
+  if (n > arr.length) {
+    const tmpArr = []
+
+    for(let i = 0 ; i < arr.length ; i++) {
+      tmpArr[i] = arr[i]
+    }
+
+    return tmpArr
+  }
+
+  const tmpArr = []
+
+  for(let i = 0 ; i < n ; i++) {
+    tmpArr[i] = arr[i]
+  }
+
+  return tmpArr
+
 };
 
 // _.drop는 _.take와는 반대로, 처음 n개의 element를 제외한 새로운 배열을 리턴합니다.
