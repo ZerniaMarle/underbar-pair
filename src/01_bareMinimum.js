@@ -11,6 +11,7 @@
 // 이 함수는 underbar의 기능 구현 및 테스트를 위해 재사용되는 함수입니다.
 _.identity = function (val) {
   // TODO: 여기에 코드를 작성합니다.
+  return val
 };
 
 /**
