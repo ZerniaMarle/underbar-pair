@@ -245,6 +245,8 @@ _.each = function (collection, iteratee) {
     }
     
   }
+
+  
   
 };
 
@@ -349,6 +351,9 @@ _.pluck = function (arr, keyOrIdx) {
   // return result;
   // _.pluck은 _.map을 사용해 구현하시기 바랍니다.
   // TODO: 여기에 코드를 작성합니다.
+
+  return _.map(arr, function (obj) {  return obj[keyOrIdx]  })
+
 };
 
 // _.reduce는
@@ -401,4 +406,23 @@ _.pluck = function (arr, keyOrIdx) {
 //         // 11 + 5 * 5 = 36; (마지막 작업이므로 최종적으로 36이 리턴됩니다.)
 _.reduce = function (arr, iteratee, initVal) {
   // TODO: 여기에 코드를 작성합니다.
+
+  let result
+  let tmpArr
+  let acc
+
+  if (initVal === undefined) {
+    acc = arr[0]
+    tmpArr = _.drop(arr, 1)
+  }
+  else {
+    acc = initVal
+    tmpArr = _.drop(arr, 0)
+  }
+
+  _.each(tmpArr, function (el, idx, src) {
+    result = iteratee(acc, el, idx, src)
+  })
+
+  return result
 };
