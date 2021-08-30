@@ -407,7 +407,6 @@ _.pluck = function (arr, keyOrIdx) {
 _.reduce = function (arr, iteratee, initVal) {
   // TODO: 여기에 코드를 작성합니다.
 
-  let result
   let tmpArr
   let acc
 
@@ -421,8 +420,8 @@ _.reduce = function (arr, iteratee, initVal) {
   }
 
   _.each(tmpArr, function (el, idx, src) {
-    result = iteratee(acc, el, idx, src)
+    acc = iteratee(acc, el, idx, src)
   })
 
-  return result
+  return acc
 };
