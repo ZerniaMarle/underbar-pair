@@ -299,6 +299,26 @@ _.reject = function (arr, test) {
 // 입력으로 전달되는 배열의 요소는 모두 primitive value라고 가정합니다.
 _.uniq = function (arr) {
   // TODO: 여기에 코드를 작성합니다.
+  
+  let result = []
+
+  _.each(arr, function (el) {
+    let flag = true
+
+    for(let resEl of result) {
+      if (resEl === el) {
+        flag = false
+        break
+      }
+    }
+
+    if(flag) {
+      result.push(el)
+    }
+  })
+
+  return result
+
 };
 
 // _.map은 iteratee(반복되는 작업)를 배열의 각 요소에 적용(apply)한 결과를 담은 새로운 배열을 리턴합니다.
