@@ -142,8 +142,32 @@ _.take = function (arr, n) {
 // n이 undefined이거나 음수인 경우, 전체 배열을 shallow copy한 새로운 배열을 리턴합니다.
 // n이 배열의 길이를 벗어날 경우, 빈 배열을 리턴합니다.
 _.drop = function (arr, n) {
-  // TODO: 여기에 코드를 작성합니다.
+  if (n === undefined || n < 0) {
+    const tmpArr = []
+
+    for(let i = 0 ; i < arr.length ; i++) {
+      tmpArr[i] = arr[i]
+    }
+
+    return tmpArr
+    
+  }
+
+  if (n > arr.length) {
+    return []
+  }
+
+  const tmpArr = []
+  let idx = 0
+  for(let i = n ; i < arr.length ; i++) {
+    tmpArr[idx] = arr[i]
+    idx++
+  }
+
+  return tmpArr
+
 };
+
 
 // _.last는 배열의 마지막 n개의 element를 담은 새로운 배열을 리턴합니다.
 // n이 undefined이거나 음수인 경우, 배열의 마지막 요소만을 담은 배열을 리턴합니다.
